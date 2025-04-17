@@ -1,0 +1,68 @@
+.imgCard{
+    transition: filter 0.4s ease;
+    width: 200px;
+    height: 290px;
+    margin: 30px 40px;
+}
+
+
+  .card:hover .imgCard {
+    filter: brightness(0.4);
+}
+.card{ 
+    position: relative;
+    padding: 0px ;
+    background-color: #2f2f2f;
+    width: 280px;
+    height: 430px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+.card:hover{
+    transform: scale(1.02);
+}
+.infoDiv{ 
+    margin-top: -20px;
+    margin-left:40px;
+    width: 200px;
+    height: auto;
+    padding:0px;
+}
+h3{
+    text-align: left;
+    color: #e4e4e4;
+}
+.card:hover .favoriteIcon,
+.favoriteIcon:hover {
+    opacity: 1;
+}
+.favoriteIcon{
+    opacity: 0; /* По умолчанию скрыта */
+    transition: opacity 0.3s ease;
+    z-index: 10; 
+   position: absolute;
+   height: 20px;
+   margin-top: 42px;
+   margin-left: 180px;
+}
+.favoriteIconIMG {
+    object-fit: contain;
+}
+
+
+.favoriteIconIMG:hover {
+    transform: scale(1.1);
+}
+.closeIcon {
+    object-fit: contain;
+    margin-left: 2px;
+}
+.closeIcon:hover {
+    transform: scale(1.1);
+}
+.divForImgCard{
+    position: absolute;
+    width: 280px;
+    height: 430px;
+    border-radius: 20px;
+}

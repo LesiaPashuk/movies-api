@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "strict": true,
+      "lib": ["es2017", "dom"],
+      "target": "ES6",
+      "jsx": "preserve",
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "skipLibCheck": true,
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"]
+      }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+  }

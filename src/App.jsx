@@ -7,12 +7,11 @@ import {InfoCard} from './components/infoCard/InfoCard'
 function App() {
 
   return (
-    <BrowserRouter basename="/movies-api">
+    <BrowserRouter>
     <Routes>
-      <Route  path='/' element={<Navigate to="/product" replace />}></Route>
-      <Route path="/product" element={<CardList />} />
+      <Route  path='/'  element={<CardList />}></Route>
       <Route path="/create-card" element={<CreateCard></CreateCard>}></Route>
-      <Route path='product/:id' element ={<InfoCard/>}></Route>
+      <Route path='/:id' element ={<InfoCard/>}></Route>
       </Routes>
     </BrowserRouter>
   )

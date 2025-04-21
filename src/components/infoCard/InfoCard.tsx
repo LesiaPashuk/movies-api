@@ -50,7 +50,7 @@ export const InfoCard = React.memo(function InfoCard(props: PropsType) {
             )}
            
           </div> 
-        <Link to='/product'><div className="closeIconInfo" >
+        <Link to='/'><div className="closeIconInfo" >
               <img src="https://img.icons8.com/?size=43&id=23537&format=png&color=939393"  />
             </div></Link> 
       <div className="cardInfo">

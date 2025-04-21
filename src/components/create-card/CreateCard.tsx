@@ -84,7 +84,7 @@ export const CreateCard=React.memo(function(props:PropsType){
         }
     }, [photo])
     return <section className="bg-gray-1000">
-        <Link to='/product'>
+        <Link to='/'>
    <button type="button"  className="
     absolute top-5 right-5
     w-[170px] h-11

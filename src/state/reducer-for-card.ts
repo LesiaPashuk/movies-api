@@ -77,7 +77,9 @@ export const reducerForCard=(state:initialState=initialState, action:ActionType)
             }
         case "add-card":
             const newCard = {id: v1(), title:action.newTitle, favoriteStatus:action.favoriteStatus, content:action.content, imgPath:action.imgPath, release_date:action.release_date,vote_average:action.vote_average, original_language:action.original_language, original_title:action.original_title}
-            return {...state,
+            return state.cardList.some(card=>card.original_title===action.original_title&&card.release_date===action.release_date)?
+             state:
+             {...state,
                cardList:[newCard,...state.cardList],
                cardListHistory:[newCard,...state.cardListHistory],
             }

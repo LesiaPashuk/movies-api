@@ -6,6 +6,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import {addCardAC, allMoviesAC, changeFavoriteStatusAC, onlyFavoriteAC, removeCardAC,  sortVoteAverageMaxAC,  sortVoteAverageMinAC} from '../../state/reducer-for-card'
 import { loadPopularMovies } from "../../api/tmdb";
 import { Link } from "react-router-dom";
+
 export type CardListType={
     cardList: Array<CardType>,
 }
@@ -62,38 +63,46 @@ export const CardList = React.memo(function(){
           if (cardList.length === 0 && cardListHistory.length === 0) {
         movies.forEach(movie=>{
             dispatchCard(addCardAC(movie.title, movie.overview, `https://image.tmdb.org/t/p/w500${movie.poster_path}`, movie.release_date, movie.vote_average, movie.original_language, movie.original_title, false))
-        });
+        
+    });
     }
         setHasInitialLoad(true)
     });
 }
-    }, [dispatchCard, hasInitialLoad, cardList.length])
-    
+    }, [dispatchCard, hasInitialLoad])
+    const [searchValue, setSearchValue]=useState("")
+    const searchFuo=(e:React.ChangeEvent<HTMLInputElement>)=>{
+        setSearchValue(e.target.value)
+         }
+    const filterCard=cardList.filter(card=>{
+        return card.title.toLowerCase().includes(searchValue.toLowerCase())})
     return <>
+    <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-6 ml-2">
    <Link to='/create-card'>
+  
    <button type="button"  className="
-    absolute top-5 right-5
-    w-[170px] h-11
-    bg-[#a50606] hover:bg-white  
-    text-white hover:text-[#a50606]
-    rounded-full
+    w-[170px] h-[42px]
+    
+    border-2
+    border-[#a50606]
+    bg-[ #2f2f2f] hover:bg-white 
+    text-[#a50606] hover:text-[#a50606]
+    
+    rounded-md
     flex items-center justify-center
     transition-colors
   ">+ Добавить фильм</button></Link>
         <select name="sort" id="sortType"
         className="
-        block
-        w-full
+     w-full
         md:w-28
-        ml-2
-        mb-6
         px-4
-        py-2
-        text-base
-        text-gray-700
-        bg-[#e6e6e6]
+        py-2.5
+         text-sm 
+        text-slate-300 
+        bg-[#1f1f1f]
         border
-        border-gray-300
+        border-slate-200 
         rounded-md
         shadow-sm
         focus:outline-none
@@ -128,10 +137,37 @@ export const CardList = React.memo(function(){
             <option  className="text-gray-700" value="min">Оценка по возрастанию</option>
             <option className="text-gray-700" value="max">Оценка по убыванию</option>
         </select>
-     
-    
+  
+        <div className="search">
+            <form className="searchForm">
+            <input type="text"
+            placeholder="Найти фильм"
+            className=" peer 
+            w-[525px]
+            bg-transparent 
+            placeholder:text-slate-300 
+            text-slate-500 
+            text-sm 
+            border 
+            border-slate-200 
+            rounded-md 
+            px-3 
+            py-2.5
+            transition 
+            duration-300 
+            ease 
+            focus:outline-none 
+            focus:border-slate-400 
+            hover:border-slate-300 
+            shadow-sm 
+            focus:shadow"
+            onChange={searchFuo}
+            />
+            </form>
+        </div>
+     </div>
     <div className='flex flex-row flex-wrap  gap-3 p-2'>{
-        cardList.map((card)=>{
+        filterCard.map((card)=>{
             return (
                 <Card key={card.id}
                 id={card.id}

@@ -1,12 +1,37 @@
-# React + Vite
+# movies-api 
+## [RESULT](https://lesiapashuk.github.io/movies-api/) 
+### О проекте
+Это приложение для работы с карточками фильмов, которое позволяет пользователям просматривать, искать и управлять коллекцией фильмов. Приложение получает популярные фильмы из API TMDB и предоставляет функции для просмотра деталей фильмов, добавления собственных фильмов, добавления в избранное, а также сортировки и фильтрации коллекции.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Используемые технологии
 
-Currently, two official plugins are available:
+- React
+- React Router
+- Redux Toolkit
+- Axios - для HTTP-запросов к API
+- Zod - для валидации форм
+- React Hook Form
+- CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### API
+[The Movie Database (TMDB) API](https://web.archive.org/web/20221113201329/https://www.themoviedb.org/documentation/api)
 
-## Expanding the ESLint configuration
+### Основные возможности
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#### Просмотр фильмов
+- Отображение карточек фильмов с постером, названием, рейтингом и датой выхода
+- Возможность просмотра детальной информации о фильме
+##### Управление коллекцией
+- Добавление новых фильмов через форму
+- Удаление фильмов
+- Добавление/удаление фильмов в избранное
+#### Сортировка и фильтрация
+- Сортировка по рейтингу (по возрастанию/убыванию)
+- Фильтрация только избранных фильмов
+- Поиск фильмов по названию
+#### Работа с API TMDB
+- Автоматическая загрузка популярных фильмов при первом запуске
+- Кеширование данных для оптимизации
+#### Валидация форм
+- Проверка всех полей при добавлении нового фильма
+- Отображение ошибок валидации
